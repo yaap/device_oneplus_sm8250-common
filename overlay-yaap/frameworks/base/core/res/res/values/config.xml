@@ -17,11 +17,13 @@
 
     <string-array name="config_deviceKeyHandlerLibs" translatable="false">
         <item>/system/priv-app/DeviceSettings/DeviceSettings.apk</item>
+        <item>/system/priv-app/DeviceSettings/DeviceSettings.apk</item>
     </string-array>
 
     <!-- Names of the key handler classes -->
     <string-array name="config_deviceKeyHandlerClasses" translatable="false">
         <item>com.aosip.device.DeviceSettings.KeyHandler</item>
+        <item>com.aosip.device.DeviceSettings.TouchKeyHandler</item>
     </string-array>
 
     <!-- OnePlus uses a proprietary vibrator hal to utilize the new powerful motor since the
