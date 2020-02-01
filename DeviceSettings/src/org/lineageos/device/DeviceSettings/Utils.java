@@ -25,6 +25,9 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.UserHandle;
 
+import android.content.res.Resources;
+import android.util.Log;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -33,6 +36,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class Utils {
+
+    private static final String TAG = Utils.class.getSimpleName();
 
     private static boolean mServiceEnabled = false;
 
@@ -152,6 +157,26 @@ public class Utils {
                 enabled != PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER;
         } catch (NameNotFoundException e) {
             return false;
+        }
+    }
+
+    public static String getLocalizedString(final Resources res,
+                                            final String stringName,
+                                            final String stringFormat) {
+        final String name = stringName.toLowerCase().replace(" ", "_");
+        final String nameRes = String.format(stringFormat, name);
+        return getStringForResourceName(res, nameRes, stringName);
+    }
+
+    public static String getStringForResourceName(final Resources res,
+                                                  final String resourceName,
+                                                  final String defaultValue) {
+        final int resId = res.getIdentifier(resourceName, "string", "org.lineageos.device.DeviceSettings");
+        if (resId <= 0) {
+            Log.e(TAG, "No resource found for " + resourceName);
+            return defaultValue;
+        } else {
+            return res.getString(resId);
         }
     }
 }

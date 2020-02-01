@@ -27,11 +27,13 @@ import android.text.TextUtils;
 import androidx.preference.PreferenceManager;
 import android.util.Log;
 
+import org.lineageos.device.DeviceSettings.TouchscreenGestureSettings;
+
 public class Startup extends BroadcastReceiver {
 
     private static final boolean DEBUG = false;
-
     private static final String TAG = "SettingsOnBoot";
+    private static final String ONE_TIME_TUNABLE_RESTORE = "hardware_tunable_restored";
     private boolean mSetupRunning = false;
     private boolean mHBM = false;
     private Context settingsContext = null;
@@ -43,6 +45,7 @@ public class Startup extends BroadcastReceiver {
             Log.d(TAG, "Received boot completed intent");
 
         boolean enabled = false;
+        TouchscreenGestureSettings.MainSettingsFragment.restoreTouchscreenGestureStates(context);
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_HBM_SWITCH, false);
         if (enabled) {
@@ -75,5 +78,15 @@ public class Startup extends BroadcastReceiver {
             return;
         }
         Utils.writeValue(file, value);
+    }
+
+    private boolean hasRestoredTunable(Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getBoolean(ONE_TIME_TUNABLE_RESTORE, false);
+    }
+
+    private void setRestoredTunable(Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        preferences.edit().putBoolean(ONE_TIME_TUNABLE_RESTORE, true).apply();
     }
 }
