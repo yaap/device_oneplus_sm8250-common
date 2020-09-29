@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.aosip.device.DeviceSettings;
+package com.yaap.device.DeviceSettings;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;

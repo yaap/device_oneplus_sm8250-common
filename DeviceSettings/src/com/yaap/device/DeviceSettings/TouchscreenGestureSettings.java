@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.aosip.device.DeviceSettings;
+package com.yaap.device.DeviceSettings;
 
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -34,10 +34,10 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.PreferenceManager;
 
-import com.android.internal.aosip.hardware.LineageHardwareManager; // Need FWB support
-import com.android.internal.aosip.hardware.TouchscreenGesture; // Need FWB support
+import com.android.internal.yaap.hardware.LineageHardwareManager; // Need FWB support
+import com.android.internal.yaap.hardware.TouchscreenGesture; // Need FWB support
 
-import com.aosip.device.DeviceSettings.R;
+import com.yaap.device.DeviceSettings.R;
 
 import java.lang.System;
 

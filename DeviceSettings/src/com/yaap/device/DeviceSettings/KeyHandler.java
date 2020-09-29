@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.aosip.device.DeviceSettings;
+package com.yaap.device.DeviceSettings;
 
 import android.Manifest;
 import android.app.NotificationManager;
@@ -44,7 +44,7 @@ import android.view.KeyEvent;
 import com.android.internal.os.DeviceKeyHandler;
 import com.android.internal.util.ArrayUtils;
 
-import com.aosip.device.DeviceSettings.Constants;
+import com.yaap.device.DeviceSettings.Constants;
 
 public class KeyHandler implements DeviceKeyHandler {
 
