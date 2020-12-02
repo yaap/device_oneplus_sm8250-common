@@ -106,7 +106,7 @@ public class DeviceSettings extends PreferenceFragment
         mHBMModeSwitch = (TwoStatePreference) findPreference(KEY_HBM_SWITCH);
         mHBMModeSwitch.setEnabled(HBMModeSwitch.isSupported());
         mHBMModeSwitch.setChecked(HBMModeSwitch.isCurrentlyEnabled(this.getContext()));
-        mHBMModeSwitch.setOnPreferenceChangeListener(new HBMModeSwitch());
+        mHBMModeSwitch.setOnPreferenceChangeListener(this);
 
         boolean autoRefresh = AutoRefreshRateSwitch.isCurrentlyEnabled(this.getContext());
         mAutoRefreshRate = (SwitchPreference) findPreference(KEY_AUTO_REFRESH_RATE);
@@ -122,6 +122,12 @@ public class DeviceSettings extends PreferenceFragment
         mFpsInfo.setChecked(prefs.getBoolean(KEY_FPS_INFO, false));
         mFpsInfo.setOnPreferenceChangeListener(this);
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mHBMModeSwitch.setChecked(HBMModeSwitch.isCurrentlyEnabled(this.getContext()));
     }
 
     @Override
@@ -147,6 +153,16 @@ public class DeviceSettings extends PreferenceFragment
         } else if (preference == mRefreshRate) {
             Boolean enabled = (Boolean) newValue;
             RefreshRateSwitch.setPeakRefresh(getContext(), enabled);
+        } else if (preference == mHBMModeSwitch) {
+            Boolean enabled = (Boolean) newValue;
+            Utils.writeValue(HBMModeSwitch.getFile(), enabled ? "5" : "0");
+            Intent hbmIntent = new Intent(this.getContext(),
+                    com.yaap.device.DeviceSettings.HBMModeService.class);
+            if (enabled) {
+                this.getContext().startService(hbmIntent);
+            } else {
+                this.getContext().stopService(hbmIntent);
+            }
         } else {
             Constants.setPreferenceInt(getContext(), preference.getKey(),
                     Integer.parseInt((String) newValue));
