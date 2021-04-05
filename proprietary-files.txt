@@ -372,40 +372,40 @@ vendor/etc/init/dpmQmiMgr.rc|1538743661a5c48c15cd105beaad20f72953885a
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so|9b0fea7960b0558206bfc10f341bcbb86e9ba11c
 vendor/lib64/libdpmqmihal.so|f3cd740f6ff59a32287d36d52e0ee0c5a0d99230
 
-# DRM
-vendor/bin/hw/vendor.qti.hardware.qseecom@1.0-service
-vendor/bin/qseecomd
-vendor/etc/init/qseecomd.rc
-vendor/etc/init/vendor.qti.hardware.qseecom@1.0-service.rc
-vendor/lib64/hw/vendor.qti.hardware.qseecom@1.0-impl.so
-vendor/lib64/libcpion.so
-vendor/lib64/libdrmfs.so
-vendor/lib64/libdrmtime.so
-vendor/lib64/libGPreqcancel.so
-vendor/lib64/libGPreqcancel_svc.so
-vendor/lib64/libops.so
-vendor/lib64/libqisl.so
-vendor/lib64/libQSEEComAPI.so
-vendor/lib64/librpmb.so
-vendor/lib64/libsecureui.so
-vendor/lib64/libsecureui_svcsock.so
-vendor/lib64/libSecureUILib.so
-vendor/lib64/libspl.so
-vendor/lib64/libssd.so
-vendor/lib64/libStDrvInt.so
-vendor/lib64/libtzdrmgenprov.so
-vendor/lib64/vendor.qti.hardware.qseecom@1.0.so
+# DRM - from alioth - V12.0.2.0.RKHMIXM
+vendor/bin/hw/vendor.qti.hardware.qseecom@1.0-service|ffbf257b96f2e7a69d192dff0badf636a4f805e4
+vendor/bin/qseecomd|1c486b0ee7b785da8c3e2f9e65676706095cd4f7
+vendor/etc/init/qseecomd.rc|9c3b9c649e2bb8959b14d0e1278a390ddb15dc5e
+vendor/etc/init/vendor.qti.hardware.qseecom@1.0-service.rc|0f43244d70d5efc1e4f089b926a9dc4f59e53db1
+vendor/lib64/hw/vendor.qti.hardware.qseecom@1.0-impl.so|7d3e2b82132064b983a903b27d7a815c1c696b10
+vendor/lib64/libcpion.so|39545c8ef7082dae1aa27ebab7803d03016949bb
+vendor/lib64/libdrmfs.so|b1dcca4fe7b33b9382f2bc662412923785e7b3a5
+vendor/lib64/libdrmtime.so|7bcdaeb6cb15276a030b2a6a08bc1a42366875ee
+vendor/lib64/libGPreqcancel.so|7e47b162a5baa4570a8f53f4d4451fd57c391210
+vendor/lib64/libGPreqcancel_svc.so|32940130b49f6b0dd16a9effe1b5fd0858e18620
+vendor/lib64/libops.so|b2223e64db9d8f84262da7a8621013d3c63b6c98
+vendor/lib64/libqisl.so|4a2f72346c7f4b3368b88582da7cc7487a3be5ce
+vendor/lib64/libQSEEComAPI.so|d42c36c6df49af5f0018906963afc79a1eabcad1
+vendor/lib64/librpmb.so|b8dde9e4aa0f8211c3e5f6bad018645eeb73c6e1
+vendor/lib64/libsecureui.so|af21f03e459f9af30ab215434322f017c42ff152
+vendor/lib64/libsecureui_svcsock.so|1e258d6ed38ddaaf141f485ed2f2c9344fd1ed45
+vendor/lib64/libSecureUILib.so|fd28f025f6d5d6fdfb0fb65622f01c4ad6c73c6f
+vendor/lib64/libspl.so|0fa8c0711f72fc8a914dce044cf8dddd79ee62e1
+vendor/lib64/libssd.so|2fee29043e7654ab70e3c1b7a99c66b047713310
+vendor/lib64/libStDrvInt.so|18ab5643da33bfde618d4352729a72492487c5da
+vendor/lib64/libtzdrmgenprov.so|d05a25beba5850ba02edc7a78833b6a274a5281f
+vendor/lib64/vendor.qti.hardware.qseecom@1.0.so|8fffd318d709c3bb1789e3d1dc053d6ebcbdf6f4
 
-# ESE
-vendor/bin/hw/vendor.qti.esepowermanager@1.1-service
-vendor/etc/init/vendor.qti.esepowermanager@1.1-service.rc
-vendor/lib64/hw/vendor.qti.esepowermanager@1.1-impl.so
-vendor/lib64/vendor.qti.esepowermanager@1.0.so
-vendor/lib64/vendor.qti.esepowermanager@1.1.so
+# ESE - from alioth - V12.0.2.0.RKHMIXM
+vendor/bin/hw/vendor.qti.esepowermanager@1.1-service|3e9c23f5f7b0ae7a1618ae656b2e6ed3035db2e0
+vendor/etc/init/vendor.qti.esepowermanager@1.1-service.rc|3c024c7135ec3dd8658624509ee61396a74f1ede
+vendor/lib64/hw/vendor.qti.esepowermanager@1.1-impl.so|ff33f8e743dba93ca6f5ccb2d3299840d6cad057
+vendor/lib64/vendor.qti.esepowermanager@1.0.so|63bdca6892d06b032c1ac43f510c9626adf3dbce
+vendor/lib64/vendor.qti.esepowermanager@1.1.so|a9a95bb466b8cd48c368080b03a19296af3cf1b6
 
-# Feature enabler client
-vendor/bin/feature_enabler_client
-vendor/etc/init/feature_enabler_client.rc
+# Feature enabler client - from alioth - V12.0.2.0.RKHMIXM
+vendor/bin/feature_enabler_client|899928d99fc22576ad65dac035f9f33e0efa669d
+vendor/etc/init/feature_enabler_client.rc|7c8e7cf20093d1a6d94d7de2debd53a7e51f8c29
 
 # FM - from burton - LA.UM.9.12.r1-09000-SMxx50.0
 vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so|2eaa15c7325454b13303f8e306611956b8e893ef
@@ -638,9 +638,9 @@ vendor/lib64/vendor.pixelworks.hardware.feature@1.0.so
 vendor/bin/msm_irqbalance|c455f306eb91fa3870bddb6ef31833aec60c4f01
 vendor/etc/msm_irqbalance.conf|39d0d339b3551e44258360abdb6e55e047983485
 
-# Listen - OOS
-vendor/lib/hw/sound_trigger.primary.kona.so
-vendor/lib/libsmwrapper.so
+# Listen - from alioth - V12.0.2.0.RKHMIXM
+vendor/lib/hw/sound_trigger.primary.kona.so|d7ef088c1905940e7d0280b7f810795dfd903af1
+vendor/lib/libsmwrapper.so|636665d88d3f9c00be276cf3011e1165061bc69e
 
 # Listen - from burton - LA.UM.9.12.r1-09000-SMxx50.0
 vendor/lib/libadpcmdec.so|491fedbdcf9a395340ce4142c277156c0056bcf8
@@ -660,18 +660,18 @@ system_ext/lib64/libmmosal.so|378098a961e465b5d14a29f5bc2320e10c88580c
 vendor/etc/system_properties.xml|f859685e7d871600942a38231dd15f7a09d0562b
 vendor/lib64/libmmosal.so|f6ed771b60b03cccbd7339499db06d861a5450d9
 
-# Neural networks
-vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-qti
-vendor/etc/init/android.hardware.neuralnetworks@1.3-service-qti.rc
--vendor/etc/vintf/manifest/android.hardware.neuralnetworks@1.3-service-qti-hta.xml
--vendor/etc/vintf/manifest/android.hardware.neuralnetworks@1.3-service-qti.xml
-vendor/lib64/libhexagon_nn_stub.so
-vendor/lib64/libhta.so
-vendor/lib64/libhta_hexagon_runtime.so
-vendor/lib64/unnhal-acc-adreno.so
-vendor/lib64/unnhal-acc-common.so
-vendor/lib64/unnhal-acc-hta.so
-vendor/lib64/unnhal-acc-hvx.so
+# Neural networks - from alioth - V12.0.2.0.RKHMIXM
+vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-qti|f42d672eeed8d1f2a6775932da77cca329703cfa
+vendor/etc/init/android.hardware.neuralnetworks@1.3-service-qti.rc|4b7f2c5f914f3eef38f19936c0a06efc09b5b28c
+-vendor/etc/vintf/manifest/android.hardware.neuralnetworks@1.3-service-qti-hta.xml|57e182a296097870a4c4ed1579c67da20c2b69de
+-vendor/etc/vintf/manifest/android.hardware.neuralnetworks@1.3-service-qti.xml|ac07e83ba7c2a87a2f216f04ec84df4539ea8507
+vendor/lib64/libhexagon_nn_stub.so|04876d89a6a949624d15cdfbc339fd18b5c518a3
+vendor/lib64/libhta.so|f8b4719e55a6237a1537b8ff04d1cd48d260a9b1
+vendor/lib64/libhta_hexagon_runtime.so|843fd8c72052514d48ee85850a4c92635eccf4fa
+vendor/lib64/unnhal-acc-adreno.so|14892c836900254eaba41fd9f9dc03c42f17da33
+vendor/lib64/unnhal-acc-common.so|e7c09110028f5f896796a0e2aa97451fa020344e
+vendor/lib64/unnhal-acc-hta.so|cfe9271d132aab52a4059d16815f254bebf2ff4c
+vendor/lib64/unnhal-acc-hvx.so|511c17806624b2d4e2533b6d3b5a2fe2468558b5
 
 # NFC
 system/etc/nfcee_access.xml
@@ -794,13 +794,13 @@ vendor/etc/init/vendor.qti.hardware.alarm@1.0-service.rc|a03a9a1c818595b19272ea6
 vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so|8d13f218f99c33d4f8e1986a101d5b56effaa5ac
 vendor/lib64/vendor.qti.hardware.alarm@1.0.so|b45e9bc0ebd8e10e65c4c9e3605c94d585da5fda
 
-# QCC
-vendor/bin/hw/vendor.qti.hardware.qccvndhal@1.0-service
-vendor/etc/init/vendor.qti.hardware.qccvndhal@1.0-service.rc
-vendor/lib64/hw/vendor.qti.hardware.qccvndhal@1.0-impl.so
-vendor/lib64/vendor.qti.hardware.qccsyshal@1.0.so
-vendor/lib64/vendor.qti.hardware.qccvndhal@1.0-halimpl.so
-vendor/lib64/vendor.qti.hardware.qccvndhal@1.0.so
+# QCC - from alioth - V12.0.2.0.RKHMIXM
+vendor/bin/hw/vendor.qti.hardware.qccvndhal@1.0-service|f8a83cec1452b6145180f160039aa5de5d1dd383
+vendor/etc/init/vendor.qti.hardware.qccvndhal@1.0-service.rc|afeb332a4750a11587658fcc9a75a27f63bbccdd
+vendor/lib64/hw/vendor.qti.hardware.qccvndhal@1.0-impl.so|fa0c40dc085c8966803001b4b03fe8b3e683509f
+vendor/lib64/vendor.qti.hardware.qccsyshal@1.0.so|69badb1858cafc4863d57623acebab31485e21e9
+vendor/lib64/vendor.qti.hardware.qccvndhal@1.0-halimpl.so|85e99465a939f4376c1d7a4c17bff74bedf031bb
+vendor/lib64/vendor.qti.hardware.qccvndhal@1.0.so|80d8fa77d5557386013931338709680ac2964c7b
 
 # QMI
 etc/permissions/privapp-permissions-qti.xml
@@ -1024,14 +1024,14 @@ vendor/firmware/tp/LIMIT_19821_S3908.img
 vendor/firmware/tp/LIMIT_19821_SY761.img
 vendor/firmware/tp/LIMIT_19821_SY771.img
 
-# Trusted Execution Environment connector
-vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service
-vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc
-vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
-vendor/lib64/libGPQTEEC_vendor.so
-vendor/lib64/libGPTEE_vendor.so
-vendor/lib64/libQTEEConnector_vendor.so
-vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
+# Trusted Execution Environment connector - from alioth - V12.0.2.0.RKHMIXM
+vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service|1e81ee7975db430cc1ccd6ec9cb9817ac205b60c
+vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc|c966350ee67d3a7c73ca7184e3725264025d16f5
+vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so|3ae4d032be7ef87c579de4b68bf7cb13121b4bb7
+vendor/lib64/libGPQTEEC_vendor.so|542d3de432e826d02290a04b3ec8fe87d57f7874
+vendor/lib64/libGPTEE_vendor.so|842834bc0537d56a16de4070f4505a0777198e4b
+vendor/lib64/libQTEEConnector_vendor.so|931780d22c82839a58d0c61f5f6e4bf9f18ccfca
+vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so|b37dd4d3819fc098f210b0c0646dcd42a89b7fb5
 
 # Trusted User Interface - from burton - LA.UM.9.12.r1-09000-SMxx50.0
 vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti|5fd66e37ada01c7740419e77ce3c24507d52d479
@@ -1210,85 +1210,85 @@ vendor/lib64/libwvhidl.so
 # WiFi - from burton - LA.UM.9.12.r1-09000-SMxx50.0
 vendor/bin/cnss-daemon|d0edea61a3ec4bddbcd58ef79fbd629a8f8ee2ab
 
-# WiFi Display
--framework/WfdCommon.jar
-system_ext/bin/wfdservice
-system_ext/etc/init/wfdservice.rc
-system_ext/etc/seccomp_policy/wfdservice.policy
-system_ext/etc/wfdconfigsink.xml
-system_ext/lib/com.qualcomm.qti.wifidisplayhal@1.0.so
-system_ext/lib/libmmrtpdecoder.so
-system_ext/lib/libmmrtpencoder.so
-system_ext/lib/libwfdavenhancements.so
-system_ext/lib/libwfdclient.so
-system_ext/lib/libwfdcommonutils.so
-system_ext/lib/libwfdconfigutils.so
-system_ext/lib/libwfddisplayconfig.so
-system_ext/lib/libwfdmminterface.so
-system_ext/lib/libwfdmmsink.so
-system_ext/lib/libwfdmmsrc_system.so
-system_ext/lib/libwfdrtsp.so
-system_ext/lib/libwfdservice.so
-system_ext/lib/libwfdsinksm.so
-system_ext/lib/libwfduibcinterface.so
-system_ext/lib/libwfduibcsink.so
-system_ext/lib/libwfduibcsinkinterface.so
-system_ext/lib/libwfduibcsrc.so
-system_ext/lib/libwfduibcsrcinterface.so
-system_ext/lib/vendor.qti.hardware.wifidisplaysession@1.0.so
-system_ext/lib64/libmmparser_lite.so
-system_ext/lib64/libmmrtpdecoder.so
-system_ext/lib64/libmmrtpencoder.so
-system_ext/lib64/libwfdclient.so
-system_ext/lib64/libwfdcommonutils.so
-system_ext/lib64/libwfdconfigutils.so
-system_ext/lib64/libwfddisplayconfig.so
-system_ext/lib64/libwfdmminterface.so
-system_ext/lib64/libwfdmmsink.so
-system_ext/lib64/libwfdnative.so
-system_ext/lib64/libwfdrtsp.so
-system_ext/lib64/libwfdsinksm.so
-system_ext/lib64/libwfduibcinterface.so
-system_ext/lib64/libwfduibcsink.so
-system_ext/lib64/libwfduibcsinkinterface.so
-system_ext/lib64/libwfduibcsrc.so
-system_ext/lib64/libwfduibcsrcinterface.so
--system_ext/priv-app/WfdService/WfdService.apk
-vendor/bin/wfdhdcphalservice
-vendor/bin/wfdvndservice
-vendor/bin/wifidisplayhalservice
-vendor/etc/init/android.hardware.drm@1.1-service.wfdhdcp.rc
-vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc
-vendor/etc/init/wfdvndservice.rc
-vendor/etc/seccomp_policy/wfdhdcphalservice.policy
-vendor/etc/seccomp_policy/wfdvndservice.policy
-vendor/etc/seccomp_policy/wifidisplayhalservice.policy
-vendor/etc/ArmHDCP_QTI_Android.cfg
-vendor/etc/wfdconfig.xml
-vendor/lib/libFileMux_proprietary.so
-vendor/lib/libmm-hdcpmgr.so
-vendor/lib/libmmosal.so
-vendor/lib/libmmrtpdecoder_proprietary.so
-vendor/lib/libmmrtpencoder_proprietary.so
-vendor/lib/libwfdcodecv4l2_proprietary.so
-vendor/lib/libwfdcommonutils_proprietary.so
-vendor/lib/libwfdconfigutils_proprietary.so
-vendor/lib/libwfddisplayconfig_proprietary.so
-vendor/lib/libwfdhdcpcp.so
-vendor/lib/libwfdhdcpservice_proprietary.so
-vendor/lib/libwfdmminterface_proprietary.so
-vendor/lib/libwfdmmservice_proprietary.so
-vendor/lib/libwfdmmsrc_proprietary.so
-vendor/lib/libwfdmodulehdcpsession.so
-vendor/lib/libwfdrtsp_proprietary.so
-vendor/lib/libwfdsessionmodule.so
-vendor/lib/libwfdsourcesession_proprietary.so
-vendor/lib/libwfdsourcesm_proprietary.so
-vendor/lib/libwfduibcinterface_proprietary.so
-vendor/lib/libwfduibcsink_proprietary.so
-vendor/lib/libwfduibcsinkinterface_proprietary.so
-vendor/lib/libwfduibcsrc_proprietary.so
-vendor/lib/libwfduibcsrcinterface_proprietary.so
-vendor/lib/libwfdutils_proprietary.so
-vendor/lib/vendor.qti.hardware.wifidisplaysession@1.0.so
-vendor/lib/vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl.so
+# WiFi Display - from alioth - V12.0.2.0.RKHMIXM
+-framework/WfdCommon.jar|de1adc7a4adbb117123aa5bb116c5df83c686433
+system_ext/bin/wfdservice|91f6e2d58de9354a694d3b3da6e6d224dd7e47c1
+system_ext/etc/init/wfdservice.rc|aab7aecb01c359fd521c99957c4d5bfd16a8dfae
+system_ext/etc/permissions/wfd-system-ext-privapp-permissions-qti.xml|828999946f9dfef98f17f42a1c8daba47c2c442d
+system_ext/etc/seccomp_policy/wfdservice.policy|fcd493de8a282c3776740d389280dbe103b6be6d
+system_ext/etc/wfdconfigsink.xml|fa7efddf7393cd8b146d0b9f9c8054fa75b03727
+system_ext/lib/com.qualcomm.qti.wifidisplayhal@1.0.so|d1b42bfb512a6573155308ce0eab892d1ceb2ccc
+system_ext/lib/libmmrtpdecoder.so|e50c35366bd428ac29e8a828cfd6b22aa08a0a55
+system_ext/lib/libmmrtpencoder.so|5614934db1f7302b91abf5ed123132b346b24038
+system_ext/lib/libwfdavenhancements.so|8f2c3c5e1e47a0b8d2d5a0cc934cbc33e8b37a5d
+system_ext/lib/libwfdclient.so|7bf903d0e977431e4f86cfcfe840999d10deefbe
+system_ext/lib/libwfdcommonutils.so|f6aabfd8ef7c661e84812216edf6092b125250ae
+system_ext/lib/libwfdconfigutils.so|595baec755316cc97044fe3eafda89dc0fb6b75e
+system_ext/lib/libwfddisplayconfig.so|f820d710151f2128422cd759891ff466b101844c
+system_ext/lib/libwfdmminterface.so|afa080acc6a3e342ff644b021e8b76a42f5bbe2b
+system_ext/lib/libwfdmmsink.so|d93149b2341a66126a59e162be726a2068ea2474
+system_ext/lib/libwfdmmsrc_system.so|854db7a70162002887e4d59a9a6dacfa90239221
+system_ext/lib/libwfdrtsp.so|51121e273a69cf7a4c9de3ed51f4922fe60f74e3
+system_ext/lib/libwfdservice.so|920593f3a79551ec520826059d3781c676a8f3ed
+system_ext/lib/libwfdsinksm.so|6020e560c4c111a6755013fe89228d6217c3861f
+system_ext/lib/libwfduibcinterface.so|a4e34e4c2fa1f7a5af56113c8483626662948e05
+system_ext/lib/libwfduibcsink.so|e0e290869138a80bb809e591cb3a33735466138b
+system_ext/lib/libwfduibcsinkinterface.so|cf19cfc1080c2ea8125b95256d043436ecd651c4
+system_ext/lib/libwfduibcsrc.so|1c0f49a5a6313552535ec55b0a4245b3f9556573
+system_ext/lib/libwfduibcsrcinterface.so|1a39040b4257407cc35a54e4c98362840af4c0d3
+system_ext/lib/vendor.qti.hardware.wifidisplaysession@1.0.so|48815a18144f60747555bb93650726206c54323f
+system_ext/lib64/libmmparser_lite.so|043259cf61919e60fed5eb9e69cf3668f339dab0
+system_ext/lib64/libmmrtpdecoder.so|5f468a1a97b28fa5212205e57b849605d5cb6b10
+system_ext/lib64/libmmrtpencoder.so|42b99f85469607c6c03d3701885e5f198305b971
+system_ext/lib64/libwfdclient.so|10a9765d53018a9dd95f1e2ed331fbe3cf1ab746
+system_ext/lib64/libwfdcommonutils.so|90727e49b05fd1176aed7cfadf65934563572b75
+system_ext/lib64/libwfdconfigutils.so|2daa6a2897ec66304df6dd4e504a5c98bab88562
+system_ext/lib64/libwfddisplayconfig.so|8d98d7ed260434d67167e4c0e427bf1e851e66f4
+system_ext/lib64/libwfdmminterface.so|5a47d276642b360e9dd476dc904ea733e0073cf9
+system_ext/lib64/libwfdmmsink.so|998cbc30cbacfda59e332832878a9077757847e4
+system_ext/lib64/libwfdnative.so|66c50201a2e4ba938f8e6aa4f1fbb66a716e8088
+system_ext/lib64/libwfdrtsp.so|2619c654aade078e2024074071cf3093a58aabd7
+system_ext/lib64/libwfdsinksm.so|bdd43d9eb6b5a9c896658cdf28665441f1360bdb
+system_ext/lib64/libwfduibcinterface.so|63aa1dfda67601419aeee9ee3ffdb2e51e6baae2
+system_ext/lib64/libwfduibcsink.so|a6cc8e4cb5135a28e1e17e3abe2da2b67daf70a8
+system_ext/lib64/libwfduibcsinkinterface.so|86477d60d65229e83046a9d60f984a6c8d3cede5
+system_ext/lib64/libwfduibcsrc.so|f15233e28b2c6faf2272be393e9068898b64bd6b
+system_ext/lib64/libwfduibcsrcinterface.so|b95ff44eeca6d7823acb296bb9a9b15c2a272dfb
+-system_ext/priv-app/WfdService/WfdService.apk|b7624c0f319cab12a0d424a14c5f9c68eb064f3c
+vendor/bin/wfdhdcphalservice|047b81f6902ec29606dc72443dc74b58e83153b2
+vendor/bin/wfdvndservice|1a8d7363ef8e1d1c9b719d4d55762f17fcc3a5f9
+vendor/bin/wifidisplayhalservice|6d3d6471959dcd32100a0748518b93ad748399f8
+vendor/etc/init/android.hardware.drm@1.1-service.wfdhdcp.rc|c266f08783a17f6583e3f22c85e55b0c200442ea
+vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc|576ce4393b7746b77a230745aa9e9ee3bd31b17d
+vendor/etc/init/wfdvndservice.rc|42e28fb8e0bf00620d7b9939b5bd3164ca671033
+vendor/etc/seccomp_policy/wfdhdcphalservice.policy|a489ab323be4be2df3de9f84a6b5e6cef924f4c4
+vendor/etc/seccomp_policy/wfdvndservice.policy|b46f0c22a1f9b65c6750205e161c0a3f84ac716b
+vendor/etc/seccomp_policy/wifidisplayhalservice.policy|f113f27e0e301a18baf0ade08c23071a27c7dc52
+vendor/etc/wfdconfig.xml|dd5b3c615fec6e535590219f4197dc1929e3364d
+vendor/lib/libFileMux_proprietary.so|34d6727b02f1a7898e58451769a9db1151d4b872
+vendor/lib/libmm-hdcpmgr.so|50c720a1d05eb1157bad3cc9d610521f21905618
+vendor/lib/libmmosal.so|97332fa7cc6210265092166e114be3a5eee8dabc
+vendor/lib/libmmrtpdecoder_proprietary.so|6961014e8c6bf6d239248e2eb00abab1f94591c2
+vendor/lib/libmmrtpencoder_proprietary.so|bb9b24108645b146045b3116d94b9a5ee7f99897
+vendor/lib/libwfdcodecv4l2_proprietary.so|7302d41d0f34b670edc4661ff4ec7bbbbad60b81
+vendor/lib/libwfdcommonutils_proprietary.so|4db21e26ee963db622ffcfe65cda1684a84f6749
+vendor/lib/libwfdconfigutils_proprietary.so|cf3c2a3f679a9c45b31b23f290778315a850111b
+vendor/lib/libwfddisplayconfig_proprietary.so|d7b1377155ff575fbd804a6daf146f80b815f463
+vendor/lib/libwfdhdcpcp.so|63ef8024c8db4a3592724686ecf4975373187002
+vendor/lib/libwfdhdcpservice_proprietary.so|6a51bfd8feb9bef2ebb77045c6a352f087a4e258
+vendor/lib/libwfdmminterface_proprietary.so|0228a54c958bf190564e3e870853f50a8119cf27
+vendor/lib/libwfdmmservice_proprietary.so|d9d9543bdbda52ad1a8fdadd6ffc357e54bc7325
+vendor/lib/libwfdmmsrc_proprietary.so|3e7b9b6289dc7cb883a5969c99c42a3339b108cb
+vendor/lib/libwfdmodulehdcpsession.so|40eddc942e9fd395bc47280dc45e1d7b11ec53c9
+vendor/lib/libwfdrtsp_proprietary.so|98fb4e5d3d4910d6ebf0ee4178fd718df9bf8029
+vendor/lib/libwfdsessionmodule.so|f5f3141714d6e2c146313f1563dc8ec1e6ccea2d
+vendor/lib/libwfdsourcesession_proprietary.so|5ec4b16536d582edc53a709caf346e77a9604187
+vendor/lib/libwfdsourcesm_proprietary.so|a7a27f917bc5ee6bb5f496d41b042fd357c9f010
+vendor/lib/libwfduibcinterface_proprietary.so|3ad20d7a34bf4190ee8958f5d3dd94c0a55d061a
+vendor/lib/libwfduibcsink_proprietary.so|4b85d0c9bdfa5bba547d1d520a1aa87b5d96c4a4
+vendor/lib/libwfduibcsinkinterface_proprietary.so|e791008b56b50711ff918a5f541c2e7c263d2da3
+vendor/lib/libwfduibcsrc_proprietary.so|d32641921507bded7af884e8d66ab6ba66ede054
+vendor/lib/libwfduibcsrcinterface_proprietary.so|0512c6ae4e9356f4c923913f1d1cadb5c804cab7
+vendor/lib/libwfdutils_proprietary.so|e487d9496955d152000df9b8ce413529efc3395f
+vendor/lib/vendor.qti.hardware.wifidisplaysession@1.0.so|fdec0b67d1900c354bb47eb311ae318e420baa19
+vendor/lib/vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl.so|0d10d27ad15c67e4721ef1ba47ac8ada480a6610
