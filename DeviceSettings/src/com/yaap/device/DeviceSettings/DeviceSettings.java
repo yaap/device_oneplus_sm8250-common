@@ -45,6 +45,9 @@ import androidx.preference.TwoStatePreference;
 public class DeviceSettings extends PreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
+    private static final String KEY_CATEGORY_REFRESH = "refresh";
+    public static final String KEY_REFRESH_RATE = "refresh_rate";
+    public static final String KEY_AUTO_REFRESH_RATE = "auto_refresh_rate";
     public static final String KEY_VIBSTRENGTH = "vib_strength";
     public static final String KEY_HBM_SWITCH = "hbm";
     public static final String KEY_HBM_AUTOBRIGHTNESS_SWITCH = "hbm_autobrightness";
@@ -56,6 +59,8 @@ public class DeviceSettings extends PreferenceFragment
     private static TwoStatePreference mHBMModeSwitch;
     private static TwoStatePreference mHBMAutobrightnessSwitch;
     private static TwoStatePreference mDCModeSwitch;
+    private static TwoStatePreference mRefreshRate;
+    private static SwitchPreference mAutoRefreshRate;
     private VibratorStrengthPreference mVibratorStrength;
 
     @Override
@@ -82,6 +87,15 @@ public class DeviceSettings extends PreferenceFragment
         mDCModeSwitch.setChecked(DCModeSwitch.isCurrentlyEnabled(this.getContext()));
         mDCModeSwitch.setOnPreferenceChangeListener(new DCModeSwitch());
 
+        boolean autoRefresh = AutoRefreshRateSwitch.isCurrentlyEnabled(this.getContext());
+        mAutoRefreshRate = (SwitchPreference) findPreference(KEY_AUTO_REFRESH_RATE);
+        mAutoRefreshRate.setChecked(autoRefresh);
+        mAutoRefreshRate.setOnPreferenceChangeListener(this);
+
+        mRefreshRate = (TwoStatePreference) findPreference(KEY_REFRESH_RATE);
+        mRefreshRate.setChecked(RefreshRateSwitch.isCurrentlyEnabled(this.getContext()));
+        mRefreshRate.setOnPreferenceChangeListener(this);
+        updateRefreshRateState(autoRefresh);
     }
 
     @Override
@@ -91,6 +105,18 @@ public class DeviceSettings extends PreferenceFragment
             SharedPreferences.Editor prefChange = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
             prefChange.putBoolean(KEY_HBM_AUTOBRIGHTNESS_SWITCH, enabled).commit();
             Utils.enableService(getContext());
+            } else if (preference == mAutoRefreshRate) {
+            Boolean enabled = (Boolean) newValue;
+            Settings.System.putFloat(getContext().getContentResolver(),
+                    Settings.System.PEAK_REFRESH_RATE, 120f);
+            Settings.System.putFloat(getContext().getContentResolver(),
+                    Settings.System.MIN_REFRESH_RATE, 60f);
+            Settings.System.putInt(getContext().getContentResolver(),
+                    AutoRefreshRateSwitch.SETTINGS_KEY, enabled ? 1 : 0);
+            updateRefreshRateState(enabled);
+        } else if (preference == mRefreshRate) {
+            Boolean enabled = (Boolean) newValue;
+            RefreshRateSwitch.setPeakRefresh(getContext(), enabled);
             return true;
         }
         return false;
@@ -110,4 +136,10 @@ public class DeviceSettings extends PreferenceFragment
         }
         return super.onOptionsItemSelected(item);
     }
+
+    private void updateRefreshRateState(boolean auto) {
+        mRefreshRate.setEnabled(!auto);
+        if (auto) mRefreshRate.setChecked(false);
+    }
+
 }
