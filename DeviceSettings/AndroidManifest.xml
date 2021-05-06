@@ -15,7 +15,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
           android:sharedUserId="android.uid.system"
-          package="org.lineageos.device.DeviceSettings"
+          package="com.yaap.device.DeviceSettings"
           android:versionCode="1"
           android:versionName="1.0" >
 
@@ -25,7 +25,7 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_DEVICE_CONFIG" />
 
-    <protected-broadcast android:name="org.lineageos.device.DeviceSettings.UPDATE_SETTINGS" />
+    <protected-broadcast android:name="com.yaap.device.DeviceSettings.UPDATE_SETTINGS" />
 
     <uses-sdk
         android:minSdkVersion="24" />
@@ -61,14 +61,14 @@
             android:theme="@style/AppTheme">
         </activity>
 
-        <receiver android:name="org.lineageos.device.DeviceSettings.Startup" >
+        <receiver android:name="com.yaap.device.DeviceSettings.Startup" >
             <intent-filter android:priority="100" >
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
         <service
-            android:name="org.lineageos.device.DeviceSettings.HBMModeTileService"
+            android:name="com.yaap.device.DeviceSettings.HBMModeTileService"
             android:icon="@drawable/ic_hbm_tile"
             android:label="@string/tile_hbm_mode"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
@@ -80,7 +80,7 @@
         </service>
 
         <service
-            android:name="org.lineageos.device.DeviceSettings.DCModeTileService"
+            android:name="com.yaap.device.DeviceSettings.DCModeTileService"
             android:icon="@drawable/ic_dc_tile"
             android:label="@string/tile_dc_mode"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
@@ -90,12 +90,12 @@
             </intent-filter>
         </service>
 
-        <service android:name="org.lineageos.device.DeviceSettings.AutoHighBrightnessModeService" />
+        <service android:name="com.yaap.device.DeviceSettings.AutoHighBrightnessModeService" />
 
         <!-- Search Provider -->
         <provider
             android:name=".ConfigPanelSearchIndexablesProvider"
-            android:authorities="org.lineageos.device"
+            android:authorities="com.yaap.device"
             android:multiprocess="false"
             android:grantUriPermissions="true"
             android:permission="android.permission.READ_SEARCH_INDEXABLES"

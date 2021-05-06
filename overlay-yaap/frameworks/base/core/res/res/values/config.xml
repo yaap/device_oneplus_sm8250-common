@@ -23,8 +23,8 @@
 
     <!-- Names of the key handler classes -->
     <string-array name="config_deviceKeyHandlerClasses" translatable="false">
-        <item>org.lineageos.settings.device.KeyHandler</item>
-        <item>org.lineageos.device.DeviceSettings.TouchKeyHandler</item>
+        <item>com.yaap.settings.device.KeyHandler</item>
+        <item>com.yaap.device.DeviceSettings.TouchKeyHandler</item>
     </string-array>
 
     <!-- OnePlus uses a proprietary vibrator hal to utilize the new powerful motor since the
