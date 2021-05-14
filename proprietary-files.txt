@@ -955,28 +955,28 @@ vendor/lib64/android.hardware.secure_element@1.0-impl.so
 vendor/lib64/jcos_nq_client.so
 vendor/lib64/ls_nq_client.so
 
-# Sensors
-vendor/bin/hw/vendor.qti.hardware.sensorscalibrate@1.0-service
-vendor/bin/sensors.qti
-vendor/bin/sscrpcd
-vendor/etc/init/init.vendor.sensors.rc
-vendor/etc/init/vendor.qti.hardware.sensorscalibrate@1.0-service.rc
-vendor/etc/init/vendor.sensors.qti.rc
-vendor/etc/init/vendor.sensors.sscrpcd.rc
-vendor/etc/permissions/vendor-qti-hardware-sensorscalibrate.xml
-vendor/etc/sensors/hals.conf
-vendor/lib64/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so
-vendor/lib64/libsensorcal.so
-vendor/lib64/libsensorslog.so
-vendor/lib64/libsns_device_mode_stub.so
-vendor/lib64/libsns_fastRPC_util.so
-vendor/lib64/libsns_low_lat_stream_stub.so
-vendor/lib64/libsnsapi.so
-vendor/lib64/libsnsdiaglog.so
-vendor/lib64/libssc.so
-vendor/lib64/libssc_default_listener.so
-vendor/lib64/sensors.ssc.so
-vendor/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so
+# Sensors - from OnePlus8ProOxygen_15.X.18_OTA_0180_all_2103101834_d30f95
+vendor/bin/hw/vendor.qti.hardware.sensorscalibrate@1.0-service|8d3f2a515c37295283ae4946e9103dbd4ea59959
+vendor/bin/sensors.qti|a9689a6dd5ab24bd2d42f06f72a0e6163a81134a
+vendor/bin/sscrpcd|ed4c24670438cbb63a91893bfeeff9444b77cc15
+vendor/etc/init/init.vendor.sensors.rc|5edfb483239e7f2d92aab56bafe495d03cfc3c57
+vendor/etc/init/vendor.qti.hardware.sensorscalibrate@1.0-service.rc|449c88778d880c0d47cc4d651fc60c4c424c1a3f
+vendor/etc/init/vendor.sensors.qti.rc|551e85b6278214e284151a507c909b17d800a254
+vendor/etc/init/vendor.sensors.sscrpcd.rc|51ce82bf86d02efaea77478c027f2a96f4932790
+vendor/etc/permissions/vendor-qti-hardware-sensorscalibrate.xml|9b29c315f6c8b70ee22731cf0af420573c0189a9
+vendor/etc/sensors/hals.conf|bf3677cbfa5ce5735662e8c259cb027969f65c87
+vendor/lib64/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so|39a66fb63c7f04250f1786fa97bb2b92fa6da4aa
+vendor/lib64/libsensorcal.so|44eb4ada69ebccfdd7ceac93dbe092db6e668583
+vendor/lib64/libsensorslog.so|9472ab723e99e531b6611b726089efccb8fc8d42
+vendor/lib64/libsns_device_mode_stub.so|5122ec9c1ef6b13be5573579b922ba4027982bd3
+vendor/lib64/libsns_fastRPC_util.so|066cff2993ee6b503f49e52406ed6a28f9343ef3
+vendor/lib64/libsns_low_lat_stream_stub.so|85fe99bc8fae277022af4708452b5672cc32335f
+vendor/lib64/libsnsapi.so|4c7e11d7a9dd43e8a6246c3c180a855de28c69d1
+vendor/lib64/libsnsdiaglog.so|ddd8a641d40d7760785856f8a76149538e4e1100
+vendor/lib64/libssc.so|f45402f3c81a6ddcd902c565bf5a67e7646d8a81
+vendor/lib64/libssc_default_listener.so|d4c6183c7758e983b1022cabeeef752196f0dc50
+vendor/lib64/sensors.ssc.so|988ca53d5d4b05270998a4a48d0ae1565a3d6e77
+vendor/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so|3b347da9f763bf52304798d9a30e129077df0acb
 
 # Snapdragon Computer Vision Engine - from burton - LA.UM.9.12.r1-09000-SMxx50.0
 vendor/lib/libfastcvdsp_stub.so|6ccfd797a035075db44aaf288a87d1eb041288b7
