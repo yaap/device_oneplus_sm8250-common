@@ -107,10 +107,6 @@ void vendor_load_properties() {
           /* Global / US Unlocked */
           property_override("ro.product.model", "IN2015");
           break;
-        default:
-          /* Generic */
-          property_override("ro.product.model", "IN2015");
-          break;
       }
       break;
     case 19855:
@@ -120,10 +116,6 @@ void vendor_load_properties() {
           /* T-Mobile */
           property_override("ro.product.model", "IN2017");
           break;
-        default:
-          /* Generic */
-          property_override("ro.product.model", "IN2015");
-          break;
       }
       break;
     case 19867:
@@ -132,10 +124,6 @@ void vendor_load_properties() {
         case 25:
           /* Verizon */
           property_override("ro.product.model", "IN2019");
-          break;
-        default:
-          /* Generic */
-          property_override("ro.product.model", "IN2015");
           break;
       }
       break;
@@ -156,10 +144,6 @@ void vendor_load_properties() {
           break;
         case 15:
           /* Global / US Unlocked */
-          property_override("ro.product.model", "IN2025");
-          break;
-        default:
-          /* Generic */
           property_override("ro.product.model", "IN2025");
           break;
       }
@@ -183,10 +167,6 @@ void vendor_load_properties() {
           /* Global / US Unlocked */
           property_override("ro.product.model", "KB2005");
           break;
-        default:
-          /* Generic */
-          property_override("ro.product.model", "KB2005");
-          break;
       }
       break;
     case 20809:
@@ -195,10 +175,6 @@ void vendor_load_properties() {
         case 12:
           /* T-Mobile */
           property_override("ro.product.model", "KB2007");
-          break;
-        default:
-          /* Generic */
-          property_override("ro.product.model", "KB2005");
           break;
       }
       break;
@@ -211,10 +187,6 @@ void vendor_load_properties() {
           break;
       case 13:
           /* India */
-          property_override("ro.product.model", "LE2101");
-          break;
-      default:
-          /* Generic */
           property_override("ro.product.model", "LE2101");
           break;
       }
