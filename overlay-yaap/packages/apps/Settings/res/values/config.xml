@@ -28,4 +28,6 @@
     <!-- Device specific doze package -->
     <string name="config_customDozePackage">org.lineageos.settings.doze/org.lineageos.settings.doze.DozeSettingsActivity</string>
 
+    <bool name="config_audioPanelOnLeftSide">true</bool>
+
 </resources>
