@@ -202,6 +202,23 @@ void vendor_load_properties() {
           break;
       }
       break;
+    case 20828:
+      /* OnePlus 9R */
+      switch (rf_version){
+      case 11:
+          /* China */
+          property_override("ro.product.model", "LE2100");
+          break;
+      case 13:
+          /* India */
+          property_override("ro.product.model", "LE2101");
+          break;
+      default:
+          /* Generic */
+          property_override("ro.product.model", "LE2101");
+          break;
+      }
+      break;
   }
 
   // dalvikvm props
