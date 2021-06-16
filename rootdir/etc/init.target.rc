@@ -152,6 +152,17 @@ on boot
     chmod 0666 /sys/class/drm/card0-DSI-1/dimlayer_bl_en
     chmod 0666 /sys/class/drm/card0-DSI-1/dither_en
 
+#DeviceSettings
+    # High Brightness Mode
+    chown system graphics /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/hbm
+    chmod 0666 /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/hbm
+    # DC-Dimming
+    chmod 0660 /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/dimlayer_bl_en
+    chown system system /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/dimlayer_bl_en
+    # FPS Info
+    chown system graphics /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/sde-crtc-0/measured_fps
+    chmod 0666 /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/sde-crtc-0/measured_fps
+    
 # v-takey.zheng@SYSTEM, 2020/06/03 Add for oemlogkit camera log
     chmod 0666 /sys/module/cam_debug_util/parameters/debug_mdl
 

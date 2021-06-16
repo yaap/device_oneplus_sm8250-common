@@ -137,19 +137,7 @@ public class DeviceSettings extends PreferenceFragment
             } else {
                 this.getContext().stopService(fpsinfo);
             }
-        else if (preference == mAutoRefreshRate) {
-            Boolean enabled = (Boolean) newValue;
-            Settings.System.putFloat(getContext().getContentResolver(),
-                    Settings.System.PEAK_REFRESH_RATE, 90f);
-            Settings.System.putFloat(getContext().getContentResolver(),
-                    Settings.System.MIN_REFRESH_RATE, 60f);
-            Settings.System.putInt(getContext().getContentResolver(),
-                    AutoRefreshRateSwitch.SETTINGS_KEY, enabled ? 1 : 0);
-            updateRefreshRateState(enabled);
-        } else if (preference == mRefreshRate) {
-            Boolean enabled = (Boolean) newValue;
-            RefreshRateSwitch.setPeakRefresh(getContext(), enabled);
-        } else if (preference == mHBMModeSwitch) {
+        }else if (preference == mHBMModeSwitch) {
             Boolean enabled = (Boolean) newValue;
             Utils.writeValue(HBMModeSwitch.getFile(), enabled ? "5" : "0");
             Intent hbmIntent = new Intent(this.getContext(),
@@ -159,6 +147,18 @@ public class DeviceSettings extends PreferenceFragment
             } else {
                 this.getContext().stopService(hbmIntent);
             }
+        }else if (preference == mAutoRefreshRate) {
+            Boolean enabled = (Boolean) newValue;
+            Settings.System.putFloat(getContext().getContentResolver(),
+                    Settings.System.PEAK_REFRESH_RATE, 120f);
+            Settings.System.putFloat(getContext().getContentResolver(),
+                    Settings.System.MIN_REFRESH_RATE, 60f);
+            Settings.System.putInt(getContext().getContentResolver(),
+                    AutoRefreshRateSwitch.SETTINGS_KEY, enabled ? 1 : 0);
+            updateRefreshRateState(enabled);
+        } else if (preference == mRefreshRate) {
+            Boolean enabled = (Boolean) newValue;
+            RefreshRateSwitch.setPeakRefresh(getContext(), enabled);
         } else {
             Constants.setPreferenceInt(getContext(), preference.getKey(),
                     Integer.parseInt((String) newValue));
