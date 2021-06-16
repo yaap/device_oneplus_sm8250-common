@@ -59,7 +59,7 @@ public class RefreshRateTileService extends TileService {
             RefreshRateSwitch.setPeakRefresh(this, enabled);
 
             getQsTile().setIcon(Icon.createWithResource(this,
-                    enabled ? R.drawable.ic_refresh_tile_90 : R.drawable.ic_refresh_tile_60));
+                    enabled ? R.drawable.ic_refresh_tile_120 : R.drawable.ic_refresh_tile_60));
             getQsTile().setState(enabled ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
         }
         getQsTile().updateTile();
@@ -79,11 +79,11 @@ public class RefreshRateTileService extends TileService {
             RefreshRateSwitch.setPeakRefresh(this, enabled);
             sharedPrefs.edit().putBoolean(DeviceSettings.KEY_REFRESH_RATE, enabled ? false : true).commit();
             Settings.System.putFloat(this.getContentResolver(),
-                    Settings.System.PEAK_REFRESH_RATE, enabled ? 60f : 90f);
+                    Settings.System.PEAK_REFRESH_RATE, enabled ? 60f : 120f);
             Settings.System.putFloat(this.getContentResolver(),
-                    Settings.System.MIN_REFRESH_RATE, enabled ? 60f : 90f);
+                    Settings.System.MIN_REFRESH_RATE, enabled ? 60f : 120f);
             getQsTile().setIcon(Icon.createWithResource(this,
-                    enabled ? R.drawable.ic_refresh_tile_60 : R.drawable.ic_refresh_tile_90));
+                    enabled ? R.drawable.ic_refresh_tile_60 : R.drawable.ic_refresh_tile_120));
             getQsTile().setState(enabled ? Tile.STATE_INACTIVE : Tile.STATE_ACTIVE);
             getQsTile().updateTile();
         }
