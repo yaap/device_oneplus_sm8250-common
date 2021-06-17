@@ -84,6 +84,14 @@ void load_dalvikvm_properties() {
   property_override("dalvik.vm.heapminfree", "8m");
 }
 
+void load_op8t() {
+  property_override("ro.product.name", "OnePlus8T");
+  property_override("ro.build.product", "OnePlus8T");
+  property_override("ro.product.device", "OnePlus8T");
+  property_override("ro.vendor.product.device", "OnePlus8T");
+  property_override("ro.display.series", "OnePlus 8T");
+}
+
 void vendor_load_properties() {
   int project_name = stoi(android::base::GetProperty("ro.boot.project_name", ""));
   int rf_version = stoi(android::base::GetProperty("ro.boot.rf_version", ""));
@@ -166,6 +174,7 @@ void vendor_load_properties() {
       break;
     case 19805:
       /* OnePlus 8T */
+      load_op8t();
       switch (rf_version){
         case 11:
           /* China */
