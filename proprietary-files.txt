@@ -594,10 +594,6 @@ vendor/lib64/libOmxVpp.so|b5bfbf559cccf33e0f70e5c0fdb962c0e1b90206
 vendor/lib64/libOmxWmaDec.so|6c65d02f59ea10ef263f40dfcbb0d77a9d5021fd
 vendor/lib64/libswvdec.so|ff848e5234baf0f7bd72f92c15d6ec77faa54fb3
 
-# OPFeature
-vendor/bin/opf-service
-vendor/etc/init/init.opf.rc
-
 # Peripheral manager - from LA.UM.9.12.r1-10800-SMxx50.0 
 vendor/bin/pm-proxy|0bf9d5f920ee8e62f517d29534812b5592c4dd5e
 vendor/bin/pm-service|233111a0c4f74bb4f702567ed59569c8469a8775
