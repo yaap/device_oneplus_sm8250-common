@@ -11,8 +11,6 @@
 ##################################################################################
 #Load WLAN driver
 
-import /vendor/etc/init/hw/init.cust.rc
-
 on property:wlan.driver.status=ok
     start load_wlan_driver
 
@@ -179,12 +177,6 @@ on fs
     chmod 0664 /dev/mmw2_thermal
 
 #ifdef VENDOR_EDIT
-#if OP_FEATURE_MM_ADSP_MINIDUMP == 1
-#   zhangrun@MM, 2020/09/12, implement to collect adsp minidump
-    chmod 664 /dev/ramdump_adsp
-#endif
-
-#ifdef VENDOR_EDIT
 #   BSP add for display  2020/04/17 @Leo_BSP
     chmod 0666 /sys/class/drm/card0-DSI-1/hbm
     chmod 0666 /sys/class/drm/card0-DSI-1/hbm_brightness
@@ -237,12 +229,6 @@ on init
     #restorecon /dev/wlchg
 
 on post-fs
-#ifdef VENDOR_EDIT
-#oscar.wei@SYSTEM, 2019/10/02, [AN-604] opdiagnose porting, create folder and binary file.
-    mkdir /mnt/vendor/persist/OPDiagnose 0770 system system
-    chmod 660 /mnt/vendor/persist/OPDiagnose/opdiagnosedata
-    chown system system /mnt/vendor/persist/OPDiagnose/opdiagnosedata
-#endif
     chmod 0664 /sys/module/qpnp_smb5/parameters/usb_connector_temp
     chown system system /sys/module/qpnp_smb5/parameters/usb_connector_temp
     chmod 0664 /sys/module/qpnp_smb5/parameters/disable_connector_protect
@@ -330,37 +316,6 @@ on post-fs-data
     mkdir /data/vendor/oemnvitems 0771 radio radio
     #brandon.zeng@Conn,2020/08/11. move data path to post-fs-data
     mkdir /data/vendor/nfc 0770 nfc nfc
-    # Ted.Lin@ASTI 2019/06/12 add for CONFIG_HOUSTON
-    chown system system /sys/module/houston/parameters/fps_boost
-    chown system system /sys/module/houston/parameters/fps_data_sync
-    chown system system /sys/module/houston/parameters/perf_ready
-    chown system system /sys/module/houston/parameters/ais_enable
-    chown system system /sys/module/houston/parameters/sample_rate_ms
-    chown system system /sys/module/houston/parameters/ht_enable
-    chown system system /sys/module/houston/parameters/fps_boost_enable
-    chown system system /sys/module/houston/parameters/fps_boost_strategy
-    chown system system /sys/module/houston/parameters/tb_ctl
-    chown system system /sys/module/houston/parameters/tb_enable
-    chown system system /sys/module/houston/parameters/reset
-    chown system system /sys/module/houston/parameters/hwui_boost_enable
-    chown system system /sys/module/houston/parameters/fuse_boost
-    chown system system /dev/ht_ctl
-    chown system system /sys/module/pccore/parameters/params
-    chown system system /sys/module/tpd/parameters/tpd_enable
-    chown system system /sys/module/tpd/parameters/tpd_cmds
-    chown system system /sys/module/tpd/parameters/tpd_id
-    chown system system /sys/module/tpd/parameters/tpd_dynamic
-    chown system system /sys/module/fuse/parameters/shortcircuit
-    chown system system /sys/module/fuse/parameters/sct_mode
-    # fps stabilizer
-    chown system system /sys/module/houston/parameters/efps_max
-    chown system system /sys/module/houston/parameters/fps_boost_strategy
-    chown system system /sys/module/houston/parameters/egl_buf
-    chown system system /sys/module/houston/parameters/ht_online_config_update
-
-# Ted.Lin@ASTI 2019/06/12 add for CONFIG_CONTROL_CENTER
-    chown system system /dev/cc_ctl
-    chown system system /proc/cc_ctl
 
 #endif /* VENDOR_EDIT */
 #ifdef VENDOR_EDIT
@@ -422,16 +377,6 @@ service service_wifi_txEnable  /vendor/bin/sh /vendor/bin/wifi_txEnable
     group root system
     disabled
     oneshot
-
-on init
-    mkdir /dev/op_cgroup 0750 root system
-    mount tmpfs none /dev/op_cgroup mode=0750,uid=0,gid=1000
-    mkdir /dev/op_cgroup/freezer 0750 root system
-    mount cgroup none /dev/op_cgroup/freezer  freezer
-    chmod 777 /dev/op_cgroup/freezer
-#ifdef VENDOR_EDIT
-    setprop persist.vendor.mdm_helper.fail_action cold_reset,s3_reset,panic
-#endif
 
 # alex.huang@Connectivity, 2020/04/29, Porting *#8019# function
 #ifdef VENDOR_EDIT
@@ -618,30 +563,6 @@ service vl53l1_daemon_main /vendor/bin/vl53l1_daemon_main
     user system
     group system
     socket vl53l1_daemon stream 660 system system
-#endif
-
-#oscar.wei@SYSTEM, 2019/10/02, [AN-604] opdiagnose porting : create opdiagnose service
-service opdiagnose /system_ext/bin/OPDiagnoseservice
-    class core
-    user root
-    group system
-
-service opdiagdatacopy /system_ext/bin/OPDiagdataCopy
-    class core
-    user root
-    group system everybody
-    oneshot
-    disabled
-
-on property:vendor.copy.opdiagnose.data=1
-    start opdiagdatacopy
-
-service copy_qxdm_log /system_ext/bin/OPDiagdataCopy -q ${copy.qxdm.log}
-    class core
-    user root
-    group system everybody
-    oneshot
-    disabled
 #endif
 
 #ifdef VENDOR_EDIT
@@ -847,17 +768,3 @@ service chmodkeyboxxmldir /system/bin/chmod 777 -R /mnt/vendor/op2/.lii
     oneshot
     seclabel u:r:vold:s0
 # endif
-
-#alden.zhang@OPTI, 2020/7/18. [OSP-8064], add for IOLIMIT
-on property:persist.sys.iolimiter.enable=true
-    write /proc/iolimit_enable 1
-	write /sys/module/oneplus_healthinfo/parameters/ohm_action_ctrl Y
-	chown system system /sys/module/oneplus_healthinfo
-	chown system system /sys/module/oneplus_healthinfo/parameters
-	chown system system /sys/module/oneplus_healthinfo/parameters/ohm_iowait_h_ms
-	chown system system /sys/module/oneplus_healthinfo/parameters/ohm_iowait_l_ms
-	chown system system /sys/module/oneplus_healthinfo/parameters/ohm_read_thresh
-	chown system system /sys/module/oneplus_healthinfo/parameters/ohm_write_thresh
-	chown system system /sys/module/oneplus_healthinfo/parameters/ohm_sample_time
-	chown system system /sys/module/oneplus_healthinfo/parameters/ohm_action_ctrl
-	chown system system /proc/iolimit_enable
