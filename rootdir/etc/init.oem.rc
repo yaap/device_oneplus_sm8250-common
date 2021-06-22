@@ -20,9 +20,16 @@ service load_wlan_driver /vendor/bin/sh /vendor/bin/load_wlan_driver
     oneshot
 
 on charger
-    setprop persist.vendor.oem.dump 0
-    setprop persist.vendor.oem.ssrdump 0
-    start oemlogkit
+    start dashd
+
+on init && property:ro.boot.project_name=19811	
+    setprop vendor.wireless_charge.enable true
+
+on boot && property:vendor.wireless_charge.enable=true	
+    start wlchgd	
+    
+on charger && property:vendor.wireless_charge.enable=true	
+    start wlchgd
 
 #@bsp, 2019/08/22 Add dash charging
 service dashd /vendor/bin/dashd
