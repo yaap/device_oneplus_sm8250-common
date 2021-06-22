@@ -284,16 +284,6 @@ on post-fs
     chown system system /dev/param
 
 #ifdef VENDOR_EDIT
-#create path for NV items
-
-#ifdef VENDOR_EDIT
-#ken.chenxm@SYSTEM, 2019/10/10, add for [OSP-3172] charging optimizated
-    chown system system /sys/class/power_supply/battery/op_disable_charge
-    chmod 660 /sys/class/power_supply/battery/op_disable_charge
-    chown system system /sys/class/power_supply/bms/battery_h
-    chmod 660 /sys/class/power_supply/bms/battery_h
-#endif
-#ifdef VENDOR_EDIT
 #randle.liu@optimization, 2020/04/24, [OSP-6116] avoid waking up when wireless charging disconnects
     chown system system /sys/class/power_supply/wireless/icon_delay
     chmod 660 /sys/class/power_supply/wireless/icon_delay
@@ -324,20 +314,6 @@ on post-fs-data
     mkdir /mnt/vendor/persist/hdcp  775 media mediadrm
     restorecon /mnt/vendor/persist/hdcp
 #endif
-
-# ifdef VENDOR_EDIT
-# denzel.chen@performance, 2020/05/12, add for OPBRITN-3462
-    chmod 664 /sys/module/memplus_core/parameters/memory_plus_wake_memex
-    chown system system /sys/module/memplus_core/parameters/memory_plus_wake_memex
-# endif
-
-    # neil.sun@Connectivity, 2020/08/12, add for wifi minidump
-    mkdir /data/vendor/ramdump/wifi 0770 system system
-
-#if OP_FEATURE_MM_ADSP_MINIDUMP == 1
-# zhangrun@MM, 2020/09/12, implement to collect adsp minidump
-    mkdir /data/vendor/ramdump/adsp 0770 system system
-# endif
 
 # add for SMT test enters WLAN FTM test in non-signaling
 service wififtmserver /vendor/bin/sh vendor/bin/wifi_ftm
@@ -453,15 +429,6 @@ service reload_wlan_driver /vendor/bin/sh /vendor/bin/reload_wlan_driver
     group root
     disabled
     oneshot
-#ifdef VENDOR_EDIT
-#yuquan.fei@Connectivity, 2020/05/06, porting wlan logs functions
-service stop_pktlog /system/vendor/bin/stoppktlog
-    class main
-    user system
-    group system wifi inet net_admin sdcard_rw media_rw diag
-    disabled
-    oneshot
-#endif
 
 # denzel.chen@performance, 2020/05/12, add for OPBRITN-3462
 # system server cannot write to /proc/sys files,
@@ -501,20 +468,6 @@ service rmalikey /system/bin/rm -r /mnt/vendor/op2/.lii
     seclabel u:r:vold:s0
 #endif
 
-# ken.lin@ASTI, 2019/6/21, add for memplus
-service memplus_config /vendor/bin/sh /vendor/etc/vendor.memplus.sh
-    user root
-    disabled
-    oneshot
-    seclabel u:r:vendor_qti_init_shell:s0
-
-on property:persist.vendor.memplus.enable=*
-    start memplus_config
-
-on property:persist.sys.memplus.swappiness=*
-    write /proc/sys/vm/swappiness ${persist.sys.memplus.swappiness}
-on property:persist.sys.memplus.direct_swappiness=*
-    write /proc/sys/vm/direct_swappiness ${persist.sys.memplus.direct_swappiness}
 
 #ifdef VENDOR_EDIT
 #brandon.zeng@Conn,2020/05/08. add for nfc pnscr tool
@@ -576,60 +529,6 @@ on property:persist.sys.oem.otg_support=false
     write /sys/class/power_supply/usb/otg_switch 0
 #endif
 
-on property:vendor.sys.op.game=1
-    write  /proc/sys/kernel/sched_skip_affinity 1
-
-on property:vendor.sys.op.game=0
-    write  /proc/sys/kernel/sched_skip_affinity 0
-
-#ifdef VENDOR_EDIT
-on property:vendor.wlan.sniffer.enabled=1
-    start launch_sniffer
-    setprop vendor.wlan.sniffer.status 1
-
-on property:vendor.wlan.sniffer.enabled=0
-    stop launch_sniffer
-    start terminate_sniffer
-
-service launch_sniffer /vendor/bin/sh /vendor/bin/launch_sniffer.sh ${vendor.wlan.sniffer.iface} ${vendor.wlan.sniffer.channel} ${vendor.wlan.sniffer.bandwidth}
-    class main
-    user root
-    group root
-    disabled
-    oneshot
-
-service terminate_sniffer /vendor/bin/sh /vendor/bin/terminate_sniffer.sh
-    class main
-    user root
-    group root
-    disabled
-    oneshot
-
-#v-krishna.rao@Connectivity, 2020/12/21 , servce to set iwpriv contention for btwifi coex debugging
-on property:persist.vendor.oem.btwificoex.debug=1
-    start startiwprivcontention
-
-on property:persist.vendor.oem.btwificoex.debug=0
-    start stopiwprivcontention
-
-on property:wlan.driver.status=ok && property:persist.vendor.oem.btwificoex.debug=1
-    start startiwprivcontention
-
-service startiwprivcontention /vendor/bin/sh /vendor/bin/startcontention.sh 1
-    class main
-    user root
-    group root
-    disabled
-    oneshot
-
-service stopiwprivcontention /vendor/bin/sh /vendor/bin/startcontention.sh 0
-    class main
-    user root
-    group root
-    disabled
-    oneshot
-
-#endif
 
 #ifdef VENDOR_EDIT
 # TomCheng@Core ,2020/06/22, HDCP provision key feature
