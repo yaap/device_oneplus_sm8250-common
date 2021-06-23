@@ -5042,12 +5042,7 @@ case "$target" in
         setprop vendor.dcvs.prop 0
 	setprop vendor.dcvs.prop 1
     echo N > /sys/module/lpm_levels/parameters/sleep_disabled
-    # Enable fsc.
-    echo 1 > /sys/module/fsc/parameters/enable
     configure_memory_parameters
-
-    # bin.zhong@ASTI, 2019/10/12, add for memplus
-    memplus_post_config=1
     ;;
 esac
 

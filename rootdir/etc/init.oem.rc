@@ -177,10 +177,6 @@ on fs
     chmod 0666 /sys/class/backlight/panel0-backlight/brightness
 #endif
 
-#   ken.lin@ASTI, 2019/6/21, add for fsc
-    chown system system /sys/module/fsc/parameters/enable
-    chmod 0664 /sys/module/fsc/parameters/enable
-
 on boot
 #ifdef VENDOR_EDIT
     chmod 0666 /dev/goodix_fp

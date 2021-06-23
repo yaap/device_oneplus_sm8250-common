@@ -37,11 +37,9 @@
 /dev/fragment_monitor     u:object_r:fragment_monitor_device:s0
 /dev/goodix_fp            u:object_r:fingerprintd_device:s0
 /dev/ht_ctl               u:object_r:graphics_device:s0
-/dev/memplus              u:object_r:memplus_device:s0
 /dev/mmw0_thermal         u:object_r:therm_device:s0
 /dev/mmw1_thermal         u:object_r:therm_device:s0
 /dev/mmw2_thermal         u:object_r:therm_device:s0
-/dev/opfeature            u:object_r:opf_file:s0
 /dev/param                u:object_r:param_device:s0
 /dev/skin_thermal         u:object_r:therm_device:s0
 /dev/stmvl53l1_ranging    u:object_r:vl53l1_device:s0
@@ -60,9 +58,6 @@
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.CameraMDMHIDL@1\.0-service                            u:object_r:hal_cameraHIDL_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.display@1\.0-service                                  u:object_r:hal_display_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.hdcpkey@1\.0-service                                  u:object_r:hal_hdcpkey_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.param@1\.0-service                                    u:object_r:hal_param_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.pixelworks\.hardware\.display\.iris-service                              u:object_r:hal_graphics_composer_default_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.pixelworks\.hardware\.feature\.irisfeature-service                       u:object_r:hal_graphics_composer_default_exec:s0
 
 # OP1, OP2 files
 /mnt/vendor/op1(/.*)?    u:object_r:op1_file:s0
@@ -73,16 +68,8 @@
 /mnt/vendor/persist/camera(/.*)?                     u:object_r:oem_file:s0
 /mnt/vendor/persist/camera_ae_sync(/.*)?             u:object_r:oem_file:s0
 /mnt/vendor/persist/dual_camera_calibration(/.*)?    u:object_r:oem_file:s0
-/mnt/vendor/persist/engineermode(/.*)?               u:object_r:oem_file:s0
-/mnt/vendor/persist/OPDiagnose(/.*)?                 u:object_r:oem_file:s0
-
-# Socket files
-/dev/socket/backuprestore    u:object_r:backuprestore_socket:s0
-/dev/socket/oemlogkit        u:object_r:oemlogkit_socket:s0
-/dev/socket/ramboost         u:object_r:ramboost_socket:s0
 
 # Sys files
-/sys/module/fsc(/.*)?      u:object_r:sysfs_fsc:s0
 /sys/module/fuse(/.*)?     u:object_r:sysfs_fuse:s0
 /sys/module/proc(/.*)?     u:object_r:sysfs_dbg:s0
 /sys/module/tpd(/.*)?      u:object_r:sysfs_tpd:s0
