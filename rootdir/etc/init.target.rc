@@ -47,6 +47,8 @@ on init
     symlink /dev/block/platform/soc/1d84000.ufshc /dev/block/bootdevice
     chown system system /sys/devices/platform/soc/1d84000.ufshc/auto_hibern8
     chmod 0660 /sys/devices/platform/soc/1d84000.ufshc/auto_hibern8
+
+on init && property:ro.build.type=eng
     start logd
 
 on early-fs
@@ -117,14 +119,7 @@ on boot
     setprop vendor.usb.dpl.inst.name "dpl"
     setprop vendor.usb.qdss.inst.name "qdss"
     setprop vendor.usb.controller a600000.dwc3
-#ifdef VENDOR_EDIT
-    #Load WLAN driver
-    #exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules/ qca_cld3_qca6390 qca_cld3_qca6490
-#endif
-#liuhaituo@MM.Audio, 2019/6/17, add for dump audio related codec
-    chmod 0644 /d/regmap/0-0034/registers
-    chmod 0644 /d/regmap/0-0035/registers
-    chmod 0644 /d/regmap/0-0042/registers
+
 #display add 2018/10/19  @lichao_display
     chmod 0666 /sys/class/drm/card0-DSI-1/SRGB
     chmod 0666 /sys/class/drm/card0-DSI-1/DCI_P3
@@ -162,15 +157,6 @@ on boot
     # FPS Info
     chown system graphics /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/sde-crtc-0/measured_fps
     chmod 0666 /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/sde-crtc-0/measured_fps
-    
-# v-takey.zheng@SYSTEM, 2020/06/03 Add for oemlogkit camera log
-    chmod 0666 /sys/module/cam_debug_util/parameters/debug_mdl
-
-# ifdef VENDOR_EDIT
-# travis.oyang@OPTI, 2020/9/5, Add server for modem sleep info service.
-chown system system /proc/rpmh_modem/sleepinfo
-chmod 0660 /proc/rpmh_modem/sleepinfo
-# endif /* VENDOR_EDIT */
 
 on property:vendor.display.lcd_density=560
    setprop dalvik.vm.heapgrowthlimit 256m
@@ -226,16 +212,6 @@ service vendor.mdm_launcher /vendor/bin/sh /vendor/bin/init.mdm.sh
     class core
     oneshot
 
-# ifdef VENDOR_EDIT
-# travis.oyang@OPTI, 2020/9/3, Add server for modem sleep info service.
-service qmi_master_stats_service /vendor/bin/qmi-framework-tests/qmi_master_stats_service
-    class main
-    user system
-    group system
-    disabled
-    oneshot
-# endif /* VENDOR_EDIT */
-
 on property:init.svc.vendor.per_mgr=running
     start vendor.per_proxy
 
@@ -249,20 +225,6 @@ on property:sys.boot_completed=1
     chmod 0600 /mnt/vendor/persist/data/pfm/licenses/1000-1000-no-exp-2013248336.pfm
     chown system system /mnt/vendor/persist/data/pfm/licenses/1000-1000-no-exp-2013248336.pfm
 #endif /* VENDOR_EDIT */
-
-#yuquan.fei@yuquan.fei, 2020/07/29, use cnss_diag to grab WiFi log
-#ifdef/* VENDOR_EDIT */
-#on property:vold.decrypt=trigger_restart_framework
-#   start vendor.cnss_diag
-#endif /* VENDOR_EDIT */
-
-
-service vendor.cnss_diag /system/vendor/bin/cnss_diag -q -f -b 128 -t HELIUM
-   class main
-   user system
-   group system wifi inet sdcard_rw media_rw diag
-   disabled
-   oneshot
 
 #ifdef VENDOR_EDIT
 # ajinath@SYSTEM, 2020/01/16, [OSP-2080] Recovery boot reason
