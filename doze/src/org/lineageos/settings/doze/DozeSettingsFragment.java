@@ -41,8 +41,7 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.SwitchPreference;
 
-public class DozeSettingsFragment extends PreferenceFragment implements OnPreferenceChangeListener,
-        CompoundButton.OnCheckedChangeListener {
+public class DozeSettingsFragment extends PreferenceFragment implements OnPreferenceChangeListener {
 
     private TextView mTextView;
     private View mSwitchBar;
@@ -64,50 +63,17 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
             showHelp();
         }
 
-        boolean dozeEnabled = Utils.isDozeEnabled(getActivity());
-
         PreferenceCategory pickupSensorCategory = (PreferenceCategory) getPreferenceScreen().
                 findPreference(Utils.CATEG_PICKUP_SENSOR);
         PreferenceCategory proximitySensorCategory = (PreferenceCategory) getPreferenceScreen().
                 findPreference(Utils.CATEG_PROX_SENSOR);
 
         mPickUpPreference = (ListPreference) findPreference(Utils.GESTURE_PICK_UP_KEY);
-        mPickUpPreference.setEnabled(dozeEnabled);
         mPickUpPreference.setOnPreferenceChangeListener(this);
 
         mPocketPreference = (SwitchPreference) findPreference(Utils.GESTURE_POCKET_KEY);
-        mPocketPreference.setEnabled(dozeEnabled);
         mPocketPreference.setOnPreferenceChangeListener(this);
 
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        final View view = LayoutInflater.from(getContext()).inflate(R.layout.doze, container, false);
-        ((ViewGroup) view).addView(super.onCreateView(inflater, container, savedInstanceState));
-        return view;
-    }
-
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        boolean dozeEnabled = Utils.isDozeEnabled(getActivity());
-
-        mTextView = view.findViewById(R.id.switch_text);
-        mTextView.setText(getString(dozeEnabled ?
-                R.string.switch_bar_on : R.string.switch_bar_off));
-
-        mSwitchBar = view.findViewById(R.id.switch_bar);
-        Switch switchWidget = mSwitchBar.findViewById(android.R.id.switch_widget);
-        switchWidget.setChecked(dozeEnabled);
-        switchWidget.setOnCheckedChangeListener(this);
-        mSwitchBar.setActivated(dozeEnabled);
-        mSwitchBar.setOnClickListener(v -> {
-            switchWidget.setChecked(!switchWidget.isChecked());
-            mSwitchBar.setActivated(switchWidget.isChecked());
-        });
     }
 
     @Override
@@ -116,18 +82,6 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
         mHandler.post(() -> Utils.checkDozeService(getActivity()));
 
         return true;
-    }
-
-    @Override
-    public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-        Utils.enableDoze(getActivity(), isChecked);
-        Utils.checkDozeService(getActivity());
-
-        mTextView.setText(getString(isChecked ? R.string.switch_bar_on : R.string.switch_bar_off));
-        mSwitchBar.setActivated(isChecked);
-
-        mPickUpPreference.setEnabled(isChecked);
-        mPocketPreference.setEnabled(isChecked);
     }
 
     @Override

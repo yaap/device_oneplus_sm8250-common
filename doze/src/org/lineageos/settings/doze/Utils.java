@@ -22,11 +22,8 @@ import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.UserHandle;
-import android.provider.Settings;
 import android.util.Log;
 import androidx.preference.PreferenceManager;
-
-import static android.provider.Settings.Secure.DOZE_ENABLED;
 
 public final class Utils {
 
@@ -54,21 +51,11 @@ public final class Utils {
     }
 
     protected static void checkDozeService(Context context) {
-        if (isDozeEnabled(context) && areGesturesEnabled(context)) {
+        if (areGesturesEnabled(context)) {
             startService(context);
         } else {
             stopService(context);
         }
-    }
-
-    protected static boolean isDozeEnabled(Context context) {
-        return Settings.Secure.getInt(context.getContentResolver(),
-                DOZE_ENABLED, 1) != 0;
-    }
-
-    protected static boolean enableDoze(Context context, boolean enable) {
-        return Settings.Secure.putInt(context.getContentResolver(),
-                DOZE_ENABLED, enable ? 1 : 0);
     }
 
     protected static void launchDozePulse(Context context) {
