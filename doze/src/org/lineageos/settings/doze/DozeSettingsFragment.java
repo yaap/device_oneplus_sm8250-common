@@ -17,7 +17,6 @@
 
 package org.lineageos.settings.doze;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -28,17 +27,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.UserHandle;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.provider.Settings;
-import android.widget.Switch;
-import android.widget.TextView;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.SwitchPreference;
 
@@ -48,14 +43,11 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
     private ListPreference mPickUpPreference;
     private SwitchPreference mPocketPreference;
     CharSequence[] mPickupprefentries;
-
     private Handler mHandler = new Handler();
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.doze_settings);
-        final ActionBar actionBar = getActivity().getActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
 
         SharedPreferences prefs = getActivity().getSharedPreferences("doze_settings",
                 Activity.MODE_PRIVATE);
@@ -126,7 +118,6 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
         mPickUpPreference.setSummary(mPickupprefentries[currentpickuprefvalue]);
         mPocketPreference.setSummary(R.string.pocket_gesture_summary);
     }
-
 
     private void updateEnablement() {
         boolean isAODEnabled = Settings.Secure.getIntForUser(getContext().getContentResolver(),
