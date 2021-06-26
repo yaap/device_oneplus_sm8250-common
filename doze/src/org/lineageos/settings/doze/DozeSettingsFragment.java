@@ -27,11 +27,12 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.UserHandle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
+import android.provider.Settings;
 import android.widget.Switch;
 import android.widget.TextView;
 import androidx.preference.ListPreference;
@@ -43,11 +44,10 @@ import androidx.preference.SwitchPreference;
 
 public class DozeSettingsFragment extends PreferenceFragment implements OnPreferenceChangeListener {
 
-    private TextView mTextView;
-    private View mSwitchBar;
 
     private ListPreference mPickUpPreference;
     private SwitchPreference mPocketPreference;
+    CharSequence[] mPickupprefentries;
 
     private Handler mHandler = new Handler();
 
@@ -63,23 +63,26 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
             showHelp();
         }
 
-        PreferenceCategory pickupSensorCategory = (PreferenceCategory) getPreferenceScreen().
-                findPreference(Utils.CATEG_PICKUP_SENSOR);
-        PreferenceCategory proximitySensorCategory = (PreferenceCategory) getPreferenceScreen().
-                findPreference(Utils.CATEG_PROX_SENSOR);
-
         mPickUpPreference = (ListPreference) findPreference(Utils.GESTURE_PICK_UP_KEY);
         mPickUpPreference.setOnPreferenceChangeListener(this);
+        mPickupprefentries = mPickUpPreference.getEntries();
 
         mPocketPreference = (SwitchPreference) findPreference(Utils.GESTURE_POCKET_KEY);
         mPocketPreference.setOnPreferenceChangeListener(this);
+        updateEnablement();
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateEnablement();
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
 
         mHandler.post(() -> Utils.checkDozeService(getActivity()));
+        mHandler.post(() -> updateEnablement());
 
         return true;
     }
@@ -115,5 +118,34 @@ public class DozeSettingsFragment extends PreferenceFragment implements OnPrefer
     private void showHelp() {
         HelpDialogFragment fragment = new HelpDialogFragment();
         fragment.show(getFragmentManager(), "help_dialog");
+    }
+
+    private void updatePref()
+    {
+        int currentpickuprefvalue = Integer.parseInt(mPickUpPreference.getValue());
+        mPickUpPreference.setSummary(mPickupprefentries[currentpickuprefvalue]);
+        mPocketPreference.setSummary(R.string.pocket_gesture_summary);
+    }
+
+
+    private void updateEnablement() {
+        boolean isAODEnabled = Settings.Secure.getIntForUser(getContext().getContentResolver(),
+                Settings.Secure.DOZE_ALWAYS_ON, 0, UserHandle.USER_CURRENT) == 1;
+        boolean isDozeEnabled = Settings.Secure.getIntForUser(getContext().getContentResolver(),
+        Settings.Secure.DOZE_ENABLED, 1, UserHandle.USER_CURRENT) != 0;
+        boolean enabled = isDozeEnabled && !isAODEnabled;
+        mPickUpPreference.setEnabled(enabled);
+        mPocketPreference.setEnabled(enabled);
+        if(enabled)
+            updatePref();
+        else if(isAODEnabled) {
+            mPickUpPreference.setSummary(R.string.disabled_for_aod);
+            mPocketPreference.setSummary(R.string.disabled_for_aod);
+        }
+        else {
+            mPickUpPreference.setSummary(R.string.disabled_for_doze);
+            mPocketPreference.setSummary(R.string.disabled_for_doze);
+        } 
+
     }
 }
