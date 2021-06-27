@@ -194,7 +194,6 @@ PRODUCT_PACKAGES += \
     init.crda.sh \
     init.mdm.sh \
     init.oem.rc \
-    init.oplus_chg.sh \
     init.qcom.class_core.sh \
     init.qcom.coex.sh \
     init.qcom.early_boot.sh \
@@ -206,7 +205,6 @@ PRODUCT_PACKAGES += \
     init.qcom.sh \
     init.qti.chg_policy.sh \
     init.qti.dcvs.sh \
-    init.qti.ims.sh \
     init.qti.qcv.sh \
     init.recovery.qcom.rc \
     init.target.rc \
