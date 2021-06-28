@@ -1,6 +1,5 @@
 # Binaries
 /(vendor|system/vendor)/bin/dashd                   u:object_r:dashd_exec:s0
-/(vendor|system/vendor)/bin/opf-service             u:object_r:opf_exec:s0
 /(vendor|system/vendor)/bin/tri-state-key_daemon    u:object_r:tri-state-key_daemon_exec:s0
 /(vendor|system/vendor)/bin/vl53l1_daemon_main      u:object_r:vl53l1_daemon_main_exec:s0
 /(vendor|system/vendor)/bin/wlchgd                  u:object_r:wlchgd_exec:s0
@@ -13,34 +12,19 @@
 /dev/block/platform/soc/1d84000.ufshc/by-name/mdm1oemnvbktmp     u:object_r:vendor_efs_boot_dev:s0
 /dev/block/platform/soc/1d84000.ufshc/by-name/mdm_oem_dycnvbk    u:object_r:vendor_efs_boot_dev:s0
 /dev/block/platform/soc/1d84000.ufshc/by-name/mdm_oem_stanvbk    u:object_r:vendor_efs_boot_dev:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/oem_cust1_[ab]     u:object_r:vendor_custom_ab_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/oem_cust2_[ab]     u:object_r:vendor_custom_ab_block_device:s0
 /dev/block/platform/soc/1d84000.ufshc/by-name/oem_dycnvbk        u:object_r:vendor_modem_efs_partition_device:s0
 /dev/block/platform/soc/1d84000.ufshc/by-name/oem_stanvbk        u:object_r:vendor_modem_efs_partition_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/op1                u:object_r:op1_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/op2                u:object_r:op2_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/opproduct_[ab]     u:object_r:vendor_custom_ab_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/param              u:object_r:param_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/rawdump            u:object_r:vendor_rawdump_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/reserve1           u:object_r:reserve1_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/reserve2           u:object_r:reserve2_block_device:s0
 /dev/block/platform/soc/1d84000.ufshc/by-name/spunvm             u:object_r:vendor_efs_boot_dev:s0
 /dev/block/platform/soc/1d84000.ufshc/by-name/storsec_[ab]       u:object_r:vendor_custom_ab_block_device:s0
 
-# Data files
-/data/reserve-lib(/.*)?    u:object_r:apk_data_file:s0
-
 # Devices
-/dev/byte-cntr            u:object_r:byte_cntr_device:s0
 /dev/cc_ctl               u:object_r:graphics_device:s0
 /dev/dash                 u:object_r:dash_device:s0
-/dev/fragment_monitor     u:object_r:fragment_monitor_device:s0
 /dev/goodix_fp            u:object_r:fingerprintd_device:s0
 /dev/ht_ctl               u:object_r:graphics_device:s0
 /dev/mmw0_thermal         u:object_r:therm_device:s0
 /dev/mmw1_thermal         u:object_r:therm_device:s0
 /dev/mmw2_thermal         u:object_r:therm_device:s0
-/dev/param                u:object_r:param_device:s0
 /dev/skin_thermal         u:object_r:therm_device:s0
 /dev/stmvl53l1_ranging    u:object_r:vl53l1_device:s0
 /dev/wlchg                u:object_r:wlchg_device:s0
@@ -58,10 +42,6 @@
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.CameraMDMHIDL@1\.0-service                            u:object_r:hal_cameraHIDL_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.display@1\.0-service                                  u:object_r:hal_display_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.oneplus\.hardware\.hdcpkey@1\.0-service                                  u:object_r:hal_hdcpkey_default_exec:s0
-
-# OP1, OP2 files
-/mnt/vendor/op1(/.*)?    u:object_r:op1_file:s0
-/mnt/vendor/op2(/.*)?    u:object_r:op2_file:s0
 
 # Persist files
 /mnt/vendor/persist                                  u:object_r:vendor_data_file:s0
