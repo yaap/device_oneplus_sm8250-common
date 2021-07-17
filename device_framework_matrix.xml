@@ -169,14 +169,6 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.dolby.hardware.dms</name>
-        <version>2.0</version>
-        <interface>
-            <name>IDms</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
     <hal format="hidl" optional="false">
         <name>vendor.goodix.hardware.biometrics.fingerprint</name>
         <version>2.1</version>
@@ -235,22 +227,6 @@
         </interface>
     </hal>
     <hal format="hidl" optional="false">
-        <name>vendor.oneplus.engnative.engineer</name>
-        <version>1.0</version>
-        <interface>
-            <name>IEngineer</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="false">
-        <name>vendor.oneplus.faceunlock.hal</name>
-        <version>1.0</version>
-        <interface>
-            <name>IFaceUnlockNativeService</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="false">
         <name>vendor.oneplus.fingerprint.extension</name>
         <version>1.0</version>
         <interface>
@@ -271,14 +247,6 @@
         <version>1.0</version>
         <interface>
             <name>IOnePlusCameraProvider</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.oneplus.hardware.cwb</name>
-        <version>1.0</version>
-        <interface>
-            <name>ICwbService</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -306,67 +274,11 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.oneplus.hardware.hypnus</name>
-        <version>1.0</version>
-        <interface>
-            <name>IHypnusUtil</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="false">
-        <name>vendor.oneplus.hardware.ifaa</name>
-        <version>2.0</version>
-        <interface>
-            <name>IOneplusIfaa</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.oneplus.hardware.lmvibrator</name>
-        <version>1.0</version>
-        <interface>
-            <name>ILinearMotorVibrator</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="false">
-        <name>vendor.oneplus.hardware.param</name>
-        <version>1.0</version>
-        <interface>
-            <name>IOneplusParam</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="false">
-        <name>vendor.oneplus.hardware.rpmb</name>
-        <version>1.0</version>
-        <interface>
-            <name>IOneplusRpmb</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
     <hal format="hidl" optional="false">
         <name>vendor.oneplus.hardware.wifi</name>
         <version>1.1</version>
         <interface>
             <name>IOneplusWifi</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.pixelworks.hardware.display</name>
-        <version>1.1</version>
-        <interface>
-            <name>IIris</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.pixelworks.hardware.feature</name>
-        <version>1.0</version>
-        <interface>
-            <name>IIrisFeature</name>
             <instance>default</instance>
         </interface>
     </hal>

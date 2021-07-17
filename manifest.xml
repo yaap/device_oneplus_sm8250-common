@@ -209,15 +209,6 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.dolby.hardware.dms</name>
-        <transport>hwbinder</transport>
-        <version>2.0</version>
-        <interface>
-            <name>IDms</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
         <name>vendor.goodix.hardware.biometrics.fingerprint</name>
         <transport>hwbinder</transport>
         <version>2.1</version>
@@ -232,24 +223,6 @@
         <version>2.0</version>
         <interface>
             <name>INqNfc</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.oneplus.engnative.engineer</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IEngineer</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.oneplus.faceunlock.hal</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IFaceUnlockNativeService</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -281,15 +254,6 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.oneplus.hardware.cwb</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>ICwbService</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
         <name>vendor.oneplus.hardware.display</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -313,51 +277,6 @@
         <version>1.0</version>
         <interface>
             <name>IOneplusHdcpKey</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.oneplus.hardware.hypnus</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IHypnusUtil</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.oneplus.hardware.ifaa</name>
-        <transport>hwbinder</transport>
-        <version>2.0</version>
-        <interface>
-            <name>IOneplusIfaa</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.oneplus.hardware.lmvibrator</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>ILinearMotorVibrator</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.oneplus.hardware.param</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IOneplusParam</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.oneplus.hardware.rpmb</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IOneplusRpmb</name>
             <instance>default</instance>
         </interface>
     </hal>
