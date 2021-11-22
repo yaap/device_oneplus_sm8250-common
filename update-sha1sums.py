@@ -22,11 +22,7 @@ from hashlib import sha1
 
 device ='sm8250-common'
 vendor ='oneplus'
-
-with open('proprietary-files.txt', 'r') as f:
-    lines = f.read().splitlines()
-vendorPath = '../../../vendor/' + vendor + '/' + device + '/proprietary'
-needSHA1 = False
+files = ['proprietary-files.txt', 'proprietary-files-qc.txt']
 
 
 def cleanup():
@@ -63,11 +59,15 @@ def update():
 
             lines[index] = '%s|%s' % (line, hash)
 
+for i in files:
+    with open(i, 'r') as f:
+        lines = f.read().splitlines()
+    vendorPath = '../../../vendor/' + vendor + '/' + device + '/proprietary'
+    needSHA1 = False
 
-if len(sys.argv) == 2 and sys.argv[1] == '-c':
-    cleanup()
-else:
-    update()
-
-with open('proprietary-files.txt', 'w') as file:
-    file.write('\n'.join(lines) + '\n')
+    if len(sys.argv) == 2 and sys.argv[1] == '-c':
+        cleanup()
+    else:
+        update()
+    with open(i, 'w') as file:
+        file.write('\n'.join(lines) + '\n')
