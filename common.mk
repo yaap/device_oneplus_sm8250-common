@@ -199,6 +199,8 @@ PRODUCT_PACKAGES += \
     init.crda.sh \
     init.mdm.sh \
     init.oem.rc \
+    init.oplus.hw.rc \
+    init.oplus.hw.rc.recovery \
     init.qcom.class_core.sh \
     init.qcom.coex.sh \
     init.qcom.early_boot.sh \
