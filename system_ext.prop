@@ -20,6 +20,9 @@ ro.charger.enable_suspend=1
 # DPM
 persist.vendor.dpm.feature=9
 
+# Fingerprint
+vendor.boot.fingerprintbstate=orange
+
 # GPS
 persist.backup.ntpServer=0.pool.ntp.org
 

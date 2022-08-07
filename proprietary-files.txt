@@ -1946,9 +1946,7 @@ odm/firmware/aw8697_haptic_172.bin
 odm/firmware/aw8697_haptic_174.bin
 odm/firmware/aw8697_haptic_235.bin
 odm/firmware/aw8697_haptic_235_19161.bin
-odm/firmware/aw8697_high_temp_high_humidity_channel_RTP_51_160HZ.bin
 odm/firmware/aw8697_high_temp_high_humidity_channel_RTP_51_160Hz.bin
-odm/firmware/aw8697_high_temp_high_humidity_channel_RTP_51_162HZ.bin
 odm/firmware/aw8697_high_temp_high_humidity_channel_RTP_51_162Hz.bin
 odm/firmware/aw8697_high_temp_high_humidity_channel_RTP_51_164Hz.bin
 odm/firmware/aw8697_high_temp_high_humidity_channel_RTP_51_166Hz.bin
